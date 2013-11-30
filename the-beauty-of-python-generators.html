@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>The beauty of Python Generators</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/the-beauty-of-python-generators.html" rel="bookmark"
+           title="Permalink to The beauty of Python Generators">The beauty of Python Generators</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2007-03-08T18:51:00">
+                Thu 08 March 2007
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/chandrakant-noreplybloggercom.html">chandrakant (noreply@blogger.com)</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>. </p>
+<p>tags: <a href="/tag/httpschemasgooglecomblogger2008kindpost.html">http://schemas.google.com/blogger/2008/kind#post</a></p>
+</footer><!-- /.post-info -->      <p><div class="line-block">
+<div class="line">Say you had to read a file line by line and change the delimiter from</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/the-beauty-of-python-generators.rst</tt>, line 13)</p>
+Line block ends without a blank line.</div>
+<p>comma to semi-colon. The python code would look like this:</p>
+<pre class="literal-block">
+f = open(&quot;c:\\testfile.txt&quot;) for line in f.readlines():     ';'.join(line.split(','))
+</pre>
+<div class="line-block">
+<div class="line">Now say you wanted to do the same thing, but only to the first 5 lines</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/the-beauty-of-python-generators.rst</tt>, line 20)</p>
+Line block ends without a blank line.</div>
+<p>of the file. The impulse for a Python newbie would be to write the
+following code:</p>
+<pre class="literal-block">
+f = open(&quot;c:\\testfile.txt&quot;) counter = 0 for line in f.readlines():   if counter &lt;&gt; 5     ';'.join(line.split(','))     counter += 1
+</pre>
+<div class="line-block">
+<div class="line">A more savvy python newbie would write the following code taking the</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/the-beauty-of-python-generators.rst</tt>, line 28)</p>
+Line block ends without a blank line.</div>
+<p>advantage of the beautiful enumerate() function:</p>
+<pre class="literal-block">
+f = open(&quot;c:\\testfile.txt&quot;) for counter,line in enumerate(f.readlines()):   if counter &lt;&gt; 5     ';'.join(line.split(','))
+</pre>
+<div class="line-block">
+<div class="line">The problem with is code is that it has two concepts intermingled, one</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/the-beauty-of-python-generators.rst</tt>, line 35)</p>
+Line block ends without a blank line.</div>
+<p>to read 5 lines and the other for the actual process of changing
+delimiters. If we wanted to keep the concepts separate, we would have to
+be able to write something like this:</p>
+<pre class="literal-block">
+f = open(&quot;c:\\testfile.txt&quot;) for line in f.readfirst5lines():   ';'.join(line.split(','))
+</pre>
+<div class="line-block">
+<div class="line">Here the process of stopping after 5 lines is encapsulated by the</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/the-beauty-of-python-generators.rst</tt>, line 44)</p>
+Line block ends without a blank line.</div>
+<p>readfirst5lines() method in the file object and the method body only
+does the changing of delimiters as before. Now this code will actually
+work! The reason that we can write code like this is due the python
+generators feature. readfirst5lines will look like this:</p>
+<pre class="literal-block">
+import itertools class myfile(file):   def readfirst5lines(self):     for i in itertools.count():       if i == 5:         break       next = self.readline()       i += 1       yield next
+</pre>
+<div class="line-block">
+<div class="line">This is of course more lines of code, but the concept is abstracted</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/the-beauty-of-python-generators.rst</tt>, line 54)</p>
+Line block ends without a blank line.</div>
+<p>away nicely. We are separating the conditions for processing the file
+from the actual processing. And whats more, this method can be slightly
+changed to take number of lines as the argument. So if you want choose
+to read the first 2, 3, 5 or how many ever lines, the method will look
+like this:</p>
+<pre class="literal-block">
+import itertools class myfile(file):   def readfirstfewlines(self, n):     for i in itertools.count():       if i == n:         break       next = self.readline()       i += 1       yield next
+</pre>
+<div class="line-block">
+<div class="line">And you can use it like this:</div>
+</div>
+<pre class="literal-block">
+f = myfile(&quot;c:\\testfile.txt&quot;) for line in f.readfirstfewlines(3):   ';'.join(line.split(','))
+</pre>
+<div class="line-block">
+<div class="line">This will process the first 3 lines.</div>
+<div class="line">(Note that we used the 'myfile' constructor method instead of the</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/the-beauty-of-python-generators.rst</tt>, line 71)</p>
+Line block ends without a blank line.</div>
+<p>'open' function to open the file, since we need an object of type
+'myfile' and not 'file'. There are other ways to downcast in python but
+this is probably the simplest way to do it in this case.)
+| Python generators go a long way in making the code more elegant and
+encapsulating separate concepts. I will blog about the mechanics of how
+generators work and its other uses as and when I learn more about them.
+For Rubyists, this concept of generators is pretty much similar to
+&quot;blocks&quot;.</p>
+</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

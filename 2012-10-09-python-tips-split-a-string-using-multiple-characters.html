@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Python tips: Split a string using multiple characters</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li class="active"><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/2012-10-09-python-tips-split-a-string-using-multiple-characters.html" rel="bookmark"
+           title="Permalink to Python tips: Split a string using multiple characters">Python tips: Split a string using multiple characters</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-10-09T18:47:38">
+                Tue 09 October 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/programming.html">programming</a><a href="/tag/python.html">python</a><a href="/tag/python-tips.html">python tips</a></p>
+</footer><!-- /.post-info -->      <p>The split function in Python allows splitting a string using only one
+character. To use multiple characters, use the re module.</p>
+</p><p><pre class="literal-block">
+import re
+</pre>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/2012-10-09-python-tips-split-a-string-using-multiple-characters.rst</tt>, line 25)</p>
+Literal block ends without a blank line; unexpected unindent.</div>
+<p>re.split('_|-<a href="#id1"><span class="problematic" id="id2">|</span></a>,', 'test_this-and-this,plus-that')</p>
+<div class="system-message" id="id1">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/2012-10-09-python-tips-split-a-string-using-multiple-characters.rst</tt>, line 25); <em><a href="#id2">backlink</a></em></p>
+Inline substitution_reference start-string without end-string.</div>
+</p><p>Use the pipe delimiter to separate the characters that you need to split
+on.</p>
+</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

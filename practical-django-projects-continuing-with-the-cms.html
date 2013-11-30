@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Practical Django projects - Continuing with the CMS</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/practical-django-projects-continuing-with-the-cms.html" rel="bookmark"
+           title="Permalink to Practical Django projects - Continuing with the CMS">Practical Django projects - Continuing with the CMS</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2011-01-10T21:52:00">
+                Mon 10 January 2011
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/chandrakant-noreplybloggercom.html">chandrakant (noreply@blogger.com)</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>. </p>
+<p>tags: <a href="/tag/httpschemasgooglecomblogger2008kindpost.html">http://schemas.google.com/blogger/2008/kind#post</a><a href="/tag/django.html">django</a></p>
+</footer><!-- /.post-info -->      <div class="line-block">
+<div class="line">- The admin application's templates can be changed. By default the</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/practical-django-projects-continuing-with-the-cms.rst</tt>, line 9)</p>
+Line block ends without a blank line.</div>
+<p>admin application looks for a template first in the added application
+directory itself (flatpages application in this case).If not available,
+then it looks at the directories of the admin application.
+| - Created a new app for search. This will need an app created using
+'manage.py search' since its a separate app and needs a model.
+| - Strangely, you can invoke any python code as a view function on your
+computer, even one that's not in INSTALLED_APPS as long as it can be
+found by django. If that python code needs a model though, it has to go
+in INSTALLED_APPS.
+| - Filter method on model objects has argument string built as &quot;__=&quot;
+and returns list of model objects.
+| - Template object is created using the path to the html file as
+parameter. The template is rendered by using a Context object as
+parameter which is a dictionary with variable name as dict key and
+variable value as dict value. These variables can be accessed in the
+html template file using Django template syntax.
+| - django.shortcuts.render_to_response is a useful facade to just
+take html file and a dictionary of parameters to do all the above.
+| - You can change the way the editing for a model object is rendered in
+the admin app. This has a clear api where you unregister the existing
+admin class for model and then subclass the admin class with a
+customized model. Once this is done, you re-register the new admin class
+for the same model.
+| - django.http.HttpResponseRedirect is a useful helper method if you
+want to redirect the results of a model object search to a specific url.</p>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

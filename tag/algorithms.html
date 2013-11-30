@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Blog - algorithms</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/2012-10-02-big-o-notation.html">Big-O notation</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2012-10-02T16:41:00">
+                Tue 02 October 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/algorithms.html">algorithms</a></p>
+</footer><!-- /.post-info --><div class="line-block">
+<div class="line">Its a way to denote the worst-case running time of an algorithm based</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/2012-10-02-big-o-notation.rst</tt>, line 10)</p>
+Line block ends without a blank line.</div>
+<p>on input size.Note, Big-O does not automatically imply worst-case. We
+just use it as a notation for worst-case running times.
+| Say an algorithm's running time is T(n).
+| Q: When is T(n) = O(f(n))? (&quot;Big Oh f of n&quot;)
+| A: If eventually, for all sufficiently large n, T(n) is bounded above
+| &nbsp;by a constant multiple of f(n).
+|
+| &nbsp;Mathematically:
+| &nbsp;T(n) = O(f(n)) if an only if there exists constants C, n0 &gt; 0
+| &nbsp;such that T(n) &lt;= C * f(n) for all n &gt;= n0.
+|
+| &nbsp;Both n0 and C should be independent of n.
+|
+| &nbsp;Note: If we have T(n) as a polynomial with the highest order term as
+n**k,
+| &nbsp;then T(n) = O(n**k), i.e. lower order terms don't matter.
+|
+|</p>
+</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2012-09-05-guiding-principles-for-algorithm-analysis.html" rel="bookmark"
+                           title="Permalink to Guiding Principles for Algorithm Analysis">Guiding Principles for Algorithm Analysis</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-09-05T00:22:00">
+                Wed 05 September 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/algorithms.html">algorithms</a></p>
+</footer><!-- /.post-info -->                <p>Three guiding principles:</p>
+</p><hr class="docutils" />
+</p><p>1. Worst case analysis: Requires&nbsp;no assumptions on where input comes
+from. Also&nbsp;no domain knowledge needed.</p>
+</p><p>Theres also average case analysis/benchmarks.&nbsp;This requires domain
+knowledge</p>
+</p><ol class="arabic simple" start="2">
+<li>Not much attention to constant factors, lower-order terms.</li>
+</ol>
+</p><ol class="arabic simple" start="3">
+<li>Asymptotic analysis - focus on large input sizes.</li>
+</ol>
+</p><p>What is a &quot;fast&quot; algorithm ...</p>
+                <a class="readmore" href="/2012-09-05-guiding-principles-for-algorithm-analysis.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2012-09-04-mergesort-summary.html" rel="bookmark"
+                           title="Permalink to Mergesort summary">Mergesort summary</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-09-04T21:02:00">
+                Tue 04 September 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/algorithms.html">algorithms</a></p>
+</footer><!-- /.post-info -->                <p>Mergesort advantage:</p>
+</p><p>Running Time is <strong>O(nlogn)</strong> which is better than O(n**2)</p>
+</p><div class="line-block">
+<div class="line">Procedure:</div>
+<div class="line">Recursively sort each half. Merge at every step.</div>
+<div class="line">Running time of merge operation = k * n for an array of n elements</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/2012-09-04-mergesort-summary.rst</tt>, line 26)</p>
+Line block ...</div>
+                <a class="readmore" href="/2012-09-04-mergesort-summary.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2012-03-24-mergesort-in-python.html" rel="bookmark"
+                           title="Permalink to Mergesort in Python">Mergesort in Python</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-03-24T18:20:00">
+                Sat 24 March 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/algorithms.html">algorithms</a></p>
+</footer><!-- /.post-info -->                <p><script src="https://gist.github.com/2188517.js" type="text/javascript">// <![CDATA[</p><p>// <![CDATA[</p><p> </p><p>// ]]]]><![CDATA[></p><p>// ]]></script></p>
+                <a class="readmore" href="/2012-03-24-mergesort-in-python.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Blog - git</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/2012-02-20-typical-everyday-git-workflow.html">Typical Everyday Git Workflow</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2012-02-20T17:03:00">
+                Mon 20 February 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/git.html">git</a></p>
+</footer><!-- /.post-info --><p>This is a concise cheatsheet for someone getting into <a class="reference external" href="http://git-scm.com/">git</a> and
+wondering what the most common commands are in a developer's daily
+workflow.</p>
+</p><p>To check the status of the files in your working directory (ie which
+files are being tracked by git and which are not):</p>
+</p><p><pre class="literal-block">
+git status -s
+</pre>
+</p><p>To add files (to staging area) that are not yet under source control:</p>
+</p><p><pre class="literal-block">
+git add &lt;filename1&gt; &lt;filename2&gt; ....
+</pre>
+</p><p>To remove files (from staging area) that were under version control but
+no longer need to be:</p>
+</p><p><pre class="literal-block">
+git rm &lt;filename1&gt; &lt;filename2&gt; ...
+</pre>
+</p><p>To record the changes locally:</p>
+</p><p><pre class="literal-block">
+git commit -m 'Your message here'
+</pre>
+</p><p>To push your changes to the main repository:</p>
+</p><p><pre class="literal-block">
+git push origin master
+</pre>
+</p>                </article>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

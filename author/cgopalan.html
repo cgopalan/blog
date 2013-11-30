@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Blog - cgopalan</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/2013-01-25-playing-with-the-sunlight-labs-api.html">Playing with the Sunlight Labs API</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2013-01-25T20:32:00">
+                Fri 25 January 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/sunlight.html">sunlight</a></p>
+</footer><!-- /.post-info --><p>The folks at <a class="reference external" href="http://sunlightlabs.com/">Sunlight Labs</a> have done some brilliant work which allows
+us to write a bit of code and get information about our legislators and
+government. Here's a piece of code that tells us which legislators were
+talking about gun control since December 2012. Additional data like the
+speaker party, chamber, etc are also available.</p>
+</p><p><pre class="literal-block">
+import requests
+import jsonparty = {'D':'Democrat', 'R':'Republican'}
+query_params = { 'apikey': '8247eaddc2544488909bea51c41dcc7c',
+                                    'phrase': 'gun control',
+                                    'start_date': '2012-12-01',
+                            }
+endpoint = 'http://capitolwords.org/api/text.json'
+
+response = requests.get( endpoint, params=query_params)
+data = json.loads(response.content.decode('utf-8'))
+
+for v_dict in data['results']:
+    print(&quot;, &quot;.join([v_dict.get('title'), v_dict.get('chamber'),
+                    party.get(v_dict.get('speaker_party')),
+                    v_dict.get('speaker_first') + ' ' +
+                    v_dict.get('speaker_last'),
+                    v_dict.get('pages')]))
+</pre>
+</p><p>As of Jan 25, 2013 the result reads:</p>
+</p><p><pre class="literal-block">
+RIGHT OF GUN OWNERSHIP, House, Republican, Doug Collins, H76
+SANDY HOOK TRAGEDY, House, Democrat, Albio Sires, H6835
+REINSTATE THE ASSAULT WEAPONS BAN, House, Democrat, Janice Hahn, H6836
+CONDEMNING THE HORRIFIC ATTACKS IN NEWTOWN, CONNECTICUT, AND EXPRESSING SUPPORT AND PRAYERS FOR ALL THOSE IMPACTED BY THIS TRAGEDY,
+Extensions, Democrat, Laura Richardson, E1952-E1953
+THE SHOOTING TRAGEDY IN NEWTOWN, CONNECTICUT, House, Democrat, Gerald Connolly, H6833-H6834
+113TH CONGRESS OPENING DAY STATEMENT, Extensions, Democrat, Yvette Clarke, E14
+DEPARTMENT OF DEFENSE APPROPRIATIONS ACT, Senate, Democrat, Charles Schumer, S8051-S8063
+DEPARTMENT OF DEFENSE APPROPRIATIONS ACT, Senate, Democrat, Barbara Mikulski, S8051-S8063
+RULES CHANGES, Senate, Republican, Michael Enzi, S8615-S8620
+IN THE CLOSING OF THE 112TH CONGRESS, House, Republican, Robert Dold, H6758-H6761
+TRIBUTES TO DEPARTING SENATORS, Senate, Democrat, Benjamin Cardin, S8498-S8504
+</pre>
+</p><p>There's also a direct <a class="reference external" href="http://python-sunlight.readthedocs.org/en/latest/">Python API</a> available which I will definitely be
+checking out. But for now, the simple HTTP-based API can be used to get
+a lot of useful information. Check out more of it <a class="reference external" href="http://services.sunlightlabs.com/docs/Sunlight_Congress_API/">here</a>.</p>
+</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2013-01-10-univariate-linear-regression-in-scipy.html" rel="bookmark"
+                           title="Permalink to Univariate Linear Regression in SciPy">Univariate Linear Regression in SciPy</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-01-10T15:36:00">
+                Thu 10 January 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/matplotlib.html">matplotlib</a><a href="/tag/scipy.html">scipy</a></p>
+</footer><!-- /.post-info -->                <p>Here's a short snippet of code that describes how to fit a linear curve
+for a set of data points using SciPy. Furthermore, its assumed that the
+data set is influenced by a single feature.</p>
+</p><p>This code is taken from the wonderful book <a class="reference external" href="http://shop.oreilly.com/product/0636920020219.do">SciPy and Numpy</a> from Eli
+Bressert ...</p>
+                <a class="readmore" href="/2013-01-10-univariate-linear-regression-in-scipy.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2013-01-08-hadoop-quickstart-with-python-map-reduce-example.html" rel="bookmark"
+                           title="Permalink to Hadoop quickstart - with Python map-reduce example">Hadoop quickstart - with Python map-reduce example</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-01-08T16:51:00">
+                Tue 08 January 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/hadoop.html">hadoop</a><a href="/tag/map-reduce.html">map-reduce</a></p>
+</footer><!-- /.post-info -->                <p>The last couple of days I have been playing around with <a class="reference external" href="http://hadoop.apache.org/">Hadoop</a>. Its
+mainly for processing large data over clusters, which can be cheap
+commodity hardware. Hadoop implements its own distributed file system
+(HDFS) as an abstraction over the underlying file systems of the various
+machines it interacts with.</p>
+</p><p>For ...</p>
+                <a class="readmore" href="/2013-01-08-hadoop-quickstart-with-python-map-reduce-example.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2012-12-30-set-up-a-python-3-3-data-science-virtualenv-on-ubuntu.html" rel="bookmark"
+                           title="Permalink to Set up a Python 3.3 data science virtualenv on Ubuntu 12.10">Set up a Python 3.3 data science virtualenv on Ubuntu 12.10</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-12-30T14:36:00">
+                Sun 30 December 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/numpy.html">numpy</a><a href="/tag/scipy.html">scipy</a></p>
+</footer><!-- /.post-info -->                <p><strong>1. Install Python 3.3.</strong></p>
+</p><p>Since Ubuntu's default python distribution is 3.2, the best way would be
+to download the source for 3.3 and then use configure, make, make test
+and sudo make install. This will replace the default python installation
+with 3.3 so that when ...</p>
+                <a class="readmore" href="/2012-12-30-set-up-a-python-3-3-data-science-virtualenv-on-ubuntu.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2012-10-09-python-tips-split-a-string-using-multiple-characters.html" rel="bookmark"
+                           title="Permalink to Python tips: Split a string using multiple characters">Python tips: Split a string using multiple characters</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-10-09T18:47:38">
+                Tue 09 October 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/programming.html">programming</a><a href="/tag/python.html">python</a><a href="/tag/python-tips.html">python tips</a></p>
+</footer><!-- /.post-info -->                <p>The split function in Python allows splitting a string using only one
+character. To use multiple characters, use the re module.</p>
+</p><p><pre class="literal-block">
+import re
+</pre>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/2012-10-09-python-tips-split-a-string-using-multiple-characters.rst</tt>, line 25)</p>
+Literal block ends without a blank line; unexpected unindent.</div>
+<p>re.split('_|-<a href="#id1"><span class="problematic" id="id2">|</span></a>,', 'test_this-and-this,plus-that')</p>
+<div class="system-message" id="id1">
+<p class="system-message-title">System ...</p></div></p>
+                <a class="readmore" href="/2012-10-09-python-tips-split-a-string-using-multiple-characters.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2012-10-02-big-o-notation.html" rel="bookmark"
+                           title="Permalink to Big-O notation">Big-O notation</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-10-02T16:41:00">
+                Tue 02 October 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/algorithms.html">algorithms</a></p>
+</footer><!-- /.post-info -->                <div class="line-block">
+<div class="line">Its a way to denote the worst-case running time of an algorithm based</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/2012-10-02-big-o-notation.rst</tt>, line 10)</p>
+Line block ends without a blank line.</div>
+<p>on input size.Note, Big-O does not automatically imply worst-case. We
+just use it as a notation for ...</p>
+                <a class="readmore" href="/2012-10-02-big-o-notation.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2012-09-18-python-tips-use-a-regex-to-remove-substitute.html" rel="bookmark"
+                           title="Permalink to Python tips: Use a regex to remove/substitute characters">Python tips: Use a regex to remove/substitute characters</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-09-18T23:16:00">
+                Tue 18 September 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/programming.html">programming</a><a href="/tag/python.html">python</a><a href="/tag/python-tips.html">python tips</a></p>
+</footer><!-- /.post-info -->                <p><pre class="literal-block">
+import re
+</pre>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/2012-09-18-python-tips-use-a-regex-to-remove-substitute.rst</tt>, line 16)</p>
+Literal block ends without a blank line; unexpected unindent.</div>
+<p>re.sub('[,. ']|test*$', target_str, arg_str)</p>
+</p><p>This takes an 'arg_str' and subsitutes the 'target_str' string with
+the pattern specified. You can specify multiple patterns by separating
+them with ...</p>
+                <a class="readmore" href="/2012-09-18-python-tips-use-a-regex-to-remove-substitute.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2012-09-05-guiding-principles-for-algorithm-analysis.html" rel="bookmark"
+                           title="Permalink to Guiding Principles for Algorithm Analysis">Guiding Principles for Algorithm Analysis</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-09-05T00:22:00">
+                Wed 05 September 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/algorithms.html">algorithms</a></p>
+</footer><!-- /.post-info -->                <p>Three guiding principles:</p>
+</p><hr class="docutils" />
+</p><p>1. Worst case analysis: Requires&nbsp;no assumptions on where input comes
+from. Also&nbsp;no domain knowledge needed.</p>
+</p><p>Theres also average case analysis/benchmarks.&nbsp;This requires domain
+knowledge</p>
+</p><ol class="arabic simple" start="2">
+<li>Not much attention to constant factors, lower-order terms.</li>
+</ol>
+</p><ol class="arabic simple" start="3">
+<li>Asymptotic analysis - focus on large input sizes.</li>
+</ol>
+</p><p>What is a &quot;fast&quot; algorithm ...</p>
+                <a class="readmore" href="/2012-09-05-guiding-principles-for-algorithm-analysis.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2012-09-04-mergesort-summary.html" rel="bookmark"
+                           title="Permalink to Mergesort summary">Mergesort summary</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-09-04T21:02:00">
+                Tue 04 September 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/algorithms.html">algorithms</a></p>
+</footer><!-- /.post-info -->                <p>Mergesort advantage:</p>
+</p><p>Running Time is <strong>O(nlogn)</strong> which is better than O(n**2)</p>
+</p><div class="line-block">
+<div class="line">Procedure:</div>
+<div class="line">Recursively sort each half. Merge at every step.</div>
+<div class="line">Running time of merge operation = k * n for an array of n elements</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/2012-09-04-mergesort-summary.rst</tt>, line 26)</p>
+Line block ...</div>
+                <a class="readmore" href="/2012-09-04-mergesort-summary.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2012-07-30-how-to-enable-sound-in-vmware-player-guest-os.html" rel="bookmark"
+                           title="Permalink to How to enable sound in VMware Player Guest OS">How to enable sound in VMware Player Guest OS</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-07-30T13:15:00">
+                Mon 30 July 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+
+</footer><!-- /.post-info -->                <p>Power off the guest VM.</p>
+</p><p>Open up the .vmx file in the appropriate directory in your host OS to
+edit it.</p>
+</p><p>Make sure the following lines are in there. If not, add them.</p>
+</p><div class="line-block">
+<div class="line">sound.present = &quot;TRUE&quot;</div>
+<div class="line-block">
+<div class="line">sound.virtualDev = &quot;es1371&quot;</div>
+<div class="line">sound.filename = &quot;-1&quot;</div>
+<div class="line">sound.autodetect = &quot;TRUE&quot;</div>
+</div>
+</div>
+</p><p>Credit goes to <a class="reference external" href="http://www.kubuntuforums.net/archive/index.php/t-38065.html">this post</a>.</p>
+</p>
+                <a class="readmore" href="/2012-07-30-how-to-enable-sound-in-vmware-player-guest-os.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2012-03-24-mergesort-in-python.html" rel="bookmark"
+                           title="Permalink to Mergesort in Python">Mergesort in Python</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-03-24T18:20:00">
+                Sat 24 March 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/algorithms.html">algorithms</a></p>
+</footer><!-- /.post-info -->                <p><script src="https://gist.github.com/2188517.js" type="text/javascript">// <![CDATA[</p><p>// <![CDATA[</p><p> </p><p>// ]]]]><![CDATA[></p><p>// ]]></script></p>
+                <a class="readmore" href="/2012-03-24-mergesort-in-python.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2012-02-20-typical-everyday-git-workflow.html" rel="bookmark"
+                           title="Permalink to Typical Everyday Git Workflow">Typical Everyday Git Workflow</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-02-20T17:03:00">
+                Mon 20 February 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/git.html">git</a></p>
+</footer><!-- /.post-info -->                <p>This is a concise cheatsheet for someone getting into <a class="reference external" href="http://git-scm.com/">git</a> and
+wondering what the most common commands are in a developer's daily
+workflow.</p>
+</p><p>To check the status of the files in your working directory (ie which
+files are being tracked by git and which are not):</p>
+</p><p><pre class="literal-block">
+git status -s ...</pre></p>
+                <a class="readmore" href="/2012-02-20-typical-everyday-git-workflow.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2012-02-13-an-ideal-virtual-environment-setup-in-python.html" rel="bookmark"
+                           title="Permalink to An ideal virtual environment setup in python">An ideal virtual environment setup in python</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-02-13T16:42:00">
+                Mon 13 February 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a></p>
+</footer><!-- /.post-info -->                <p>I currently setup my virtual environment in python as prescribed in
+<a class="reference external" href="http://stackoverflow.com/a/5177027">this wonderful suggestion</a> over at Stack Overflow.</p>
+</p><p>The idea is to first create a bootstrap virtual environment. This is
+possible without installing <a class="reference external" href="http://pypi.python.org/pypi/virtualenv">virtualenv</a>because the core virtualenv
+program is a python script. Then install virtualenv into this
+environment. The ...</p>
+                <a class="readmore" href="/2012-02-13-an-ideal-virtual-environment-setup-in-python.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Debugging python with IDLE</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/debugging-python-with-idle.html" rel="bookmark"
+           title="Permalink to Debugging python with IDLE">Debugging python with IDLE</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2005-11-22T21:43:00">
+                Tue 22 November 2005
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/chandrakant-noreplybloggercom.html">chandrakant (noreply@blogger.com)</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>. </p>
+<p>tags: <a href="/tag/httpschemasgooglecomblogger2008kindpost.html">http://schemas.google.com/blogger/2008/kind#post</a></p>
+</footer><!-- /.post-info -->      <div class="line-block">
+<div class="line">If you are playing with Python and eager to get the feel of this</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/debugging-python-with-idle.rst</tt>, line 9)</p>
+Line block ends without a blank line.</div>
+<p>wonderful language, you might be already using the interpreter and the
+in-built GUI &quot;IDLE&quot;. I have been using the interpreter to explore the
+language's various commands and features and its been very easy to use.
+However, I tried to use the debugging feature of the IDLE tool a few
+days ago and struggled with it. To me it seemed like someone who has a
+background of using debuggers in PowerBuilder, Eclipse etc, would find
+it rather hard to grasp. So if you think you dont know your way around
+the IDLE bugger, here are the steps. Once you follow these, it will
+actually be quite easy to debug your favorite Python script. The hard
+part is getting used to it, but I am sure we can suffer through a little
+discomfort - just for the sake of Python!
+| 1. Start up IDLE and as soon as the shell launches, click on 'Debug'
+menu and then 'Debugger'. This will open up the Debug popup. Do not
+close this throughout the session.
+| 2. Make sure to check all 4 checkboxes, including 'Source' and
+'Globals' (Why this is necessary is explained further below)
+| 3. Open up the file you want to debug using 'File/Open'.
+| 4. Right-click on the line you want to set a breakpoint on and click
+'Set Breakpoint'.
+| 5. On the menu of the window on which you have opened the file, click
+'Run' and then 'Run module'.
+| This should start the debug process.
+| This debug feature also debugs any code you enter through the
+interpreter! So if you start the debugger as outlined above in steps 1
+and 2, and then type commands on the interpreter, it will open up the
+relevant file and walk you through the source. Cool huh??
+| A couple of glitches: If you dont check the 'Source' checkbox on the
+debug popup, you will not be able to see the interpreter going through
+each line of the code. Also, even if you check the 'Source' checkbox,
+you will be able to see the lines being highlighted only if you take the
+focus away from the debug popup and set the focus on the window with the
+source file (say by clicking on the titlebar of the window)
+| Other than that, the IDLE debugger is very handy in giving you a
+picture of how the code progresses. As any good developer would say,
+debugging should NOT be the only way to explore a program but its a good
+thing to switch back to sometimes!</p>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

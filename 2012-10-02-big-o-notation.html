@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Big-O notation</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li class="active"><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/2012-10-02-big-o-notation.html" rel="bookmark"
+           title="Permalink to Big-O notation">Big-O notation</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-10-02T16:41:00">
+                Tue 02 October 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/algorithms.html">algorithms</a></p>
+</footer><!-- /.post-info -->      <div class="line-block">
+<div class="line">Its a way to denote the worst-case running time of an algorithm based</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/2012-10-02-big-o-notation.rst</tt>, line 10)</p>
+Line block ends without a blank line.</div>
+<p>on input size.Note, Big-O does not automatically imply worst-case. We
+just use it as a notation for worst-case running times.
+| Say an algorithm's running time is T(n).
+| Q: When is T(n) = O(f(n))? (&quot;Big Oh f of n&quot;)
+| A: If eventually, for all sufficiently large n, T(n) is bounded above
+| &nbsp;by a constant multiple of f(n).
+|
+| &nbsp;Mathematically:
+| &nbsp;T(n) = O(f(n)) if an only if there exists constants C, n0 &gt; 0
+| &nbsp;such that T(n) &lt;= C * f(n) for all n &gt;= n0.
+|
+| &nbsp;Both n0 and C should be independent of n.
+|
+| &nbsp;Note: If we have T(n) as a polynomial with the highest order term as
+n**k,
+| &nbsp;then T(n) = O(n**k), i.e. lower order terms don't matter.
+|
+|</p>
+</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

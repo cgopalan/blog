@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>How to enable sound in VMware Player Guest OS</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li class="active"><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/2012-07-30-how-to-enable-sound-in-vmware-player-guest-os.html" rel="bookmark"
+           title="Permalink to How to enable sound in VMware Player Guest OS">How to enable sound in VMware Player Guest OS</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-07-30T13:15:00">
+                Mon 30 July 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+
+</footer><!-- /.post-info -->      <p>Power off the guest VM.</p>
+</p><p>Open up the .vmx file in the appropriate directory in your host OS to
+edit it.</p>
+</p><p>Make sure the following lines are in there. If not, add them.</p>
+</p><div class="line-block">
+<div class="line">sound.present = &quot;TRUE&quot;</div>
+<div class="line-block">
+<div class="line">sound.virtualDev = &quot;es1371&quot;</div>
+<div class="line">sound.filename = &quot;-1&quot;</div>
+<div class="line">sound.autodetect = &quot;TRUE&quot;</div>
+</div>
+</div>
+</p><p>Credit goes to <a class="reference external" href="http://www.kubuntuforums.net/archive/index.php/t-38065.html">this post</a>.</p>
+</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

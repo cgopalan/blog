@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Mergesort summary</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li class="active"><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/2012-09-04-mergesort-summary.html" rel="bookmark"
+           title="Permalink to Mergesort summary">Mergesort summary</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-09-04T21:02:00">
+                Tue 04 September 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/algorithms.html">algorithms</a></p>
+</footer><!-- /.post-info -->      <p>Mergesort advantage:</p>
+</p><p>Running Time is <strong>O(nlogn)</strong> which is better than O(n**2)</p>
+</p><div class="line-block">
+<div class="line">Procedure:</div>
+<div class="line">Recursively sort each half. Merge at every step.</div>
+<div class="line">Running time of merge operation = k * n for an array of n elements</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/2012-09-04-mergesort-summary.rst</tt>, line 26)</p>
+Line block ends without a blank line.</div>
+<p>where k is the number of instructions to process on element.
+| We can use the 'Recursion tree' method to calculate running time.
+| Draw the sort out as a tree. The level number of the leaves is log n.
+(logn + 1 to be exact if you count the root node)
+| At each level j, there are 2**j subproblems.
+| The subproblem size is n /(2**j) since its halved every level.
+| Now work done at each level:
+| Work to do recursive call + Work to do merge ~ Work to do merge.
+| Work to do merge = k.n where n is problem size.
+| Work to do merge at level for one subproblem j = k * (n/(2**j))
+| Work to do merge at level for ALL 2**j subproblems
+| = 2**j * k * (n/(2**j)) = k.n (independent of j!)
+| Conceptually it is independent because the proliferation of
+subproblems
+| is canceled out by the decreasing subproblem size.
+| Total work done in mergesort = work at each level * number of levels
+| = k*n * (log n + 1)
+| = k*n*logn + k*n
+| ~ nlogn.</p>
+</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

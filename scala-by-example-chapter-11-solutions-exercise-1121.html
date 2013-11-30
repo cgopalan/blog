@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Scala By Example Chapter 11 Solutions - Exercise 11.2.1</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/scala-by-example-chapter-11-solutions-exercise-1121.html" rel="bookmark"
+           title="Permalink to Scala By Example Chapter 11 Solutions - Exercise 11.2.1">Scala By Example Chapter 11 Solutions - Exercise 11.2.1</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2011-10-06T03:56:00">
+                Thu 06 October 2011
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/chandrakant-noreplybloggercom.html">chandrakant (noreply@blogger.com)</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>. </p>
+<p>tags: <a href="/tag/httpschemasgooglecomblogger2008kindpost.html">http://schemas.google.com/blogger/2008/kind#post</a><a href="/tag/solutions.html">solutions</a><a href="/tag/scala-by-example.html">scala by example</a></p>
+</footer><!-- /.post-info -->      <p><strong>Exercise 11.2.1 Write a function repeatLoop with also additional
+syntax for an until clause.</strong></p>
+<p>The repeat { command } until (condition) was tricky. The trick is to
+realize that &quot;until&quot; would be a method call, and for it to be a method
+call, &quot;repeat {command}&quot; would have to be an object. Since objects are
+created using new, we could wrap this object creation with a method. The
+result is below. Note that the second method has been changed to
+repeatUntilLoop since it would conflict with the previous method
+repeatUntil.</p>
+<script src="https://gist.github.com/1266460.js?file=FunctionalLoops.scala"></script></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

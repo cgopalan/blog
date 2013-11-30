@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Hadoop quickstart - with Python map-reduce example</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li class="active"><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/2013-01-08-hadoop-quickstart-with-python-map-reduce-example.html" rel="bookmark"
+           title="Permalink to Hadoop quickstart - with Python map-reduce example">Hadoop quickstart - with Python map-reduce example</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-01-08T16:51:00">
+                Tue 08 January 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/hadoop.html">hadoop</a><a href="/tag/map-reduce.html">map-reduce</a></p>
+</footer><!-- /.post-info -->      <p>The last couple of days I have been playing around with <a class="reference external" href="http://hadoop.apache.org/">Hadoop</a>. Its
+mainly for processing large data over clusters, which can be cheap
+commodity hardware. Hadoop implements its own distributed file system
+(HDFS) as an abstraction over the underlying file systems of the various
+machines it interacts with.</p>
+</p><p>For those interested, this is just a quick summary of how to go about
+learning it.</p>
+</p><ul class="simple">
+<li>First, read this <a class="reference external" href="http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/">great tutorial</a> by Michael Noll which explains how
+to setup a single-node cluster and run a Hadoop job on it. Its very
+clear and you will be running it in no time. For the example, it uses
+the word count program that is provided with Hadoop.</li>
+<li>Optionally, if you have multiple machines, you can try out the
+<a class="reference external" href="http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-multi-node-cluster/">multiple cluster tutorial</a>. I haven't tried it out but I would
+imagine it would work well since its explained as clearly as the
+first.</li>
+<li>Second, if you want to write your own mappers and reducers, use the
+Hadoop streaming facility provided by Hadoop. With this, you can
+specify your custom mapper and reducer programs and the Hadoop job
+will feed the specified data to these programs as a stream. Thus, the
+advantages of the Hadoop functionality over distributed file systems
+is still retained. You can look at <a class="reference external" href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/">this blog entry</a> by the same
+author to run the custom program.</li>
+</ul>
+<p>Here's my own version of a python map and reduce program that takes in
+lines of text of sums up the count of the different words occurring in
+the text. This is the canonical map reduce example.</p>
+</p><p>mapper.py</p>
+</p><p><pre class="literal-block">
+#!/usr/local/bin/python3
+</pre>
+<p>import sys</p>
+<dl class="docutils">
+<dt>def run_map(f):</dt>
+<dd><dl class="first last docutils">
+<dt>for line in f:</dt>
+<dd><p class="first">data = line.rstrip().split()
+# print one word per line
+for word in data:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Users/cgopalan/my_blog/content/2013-01-08-hadoop-quickstart-with-python-map-reduce-example.rst</tt>, line 81)</p>
+Unexpected indentation.</div>
+<blockquote class="last">
+print(word)</blockquote>
+</dd>
+</dl>
+</dd>
+<dt>if __name__ == '__main__':</dt>
+<dd>run_map(sys.stdin)</dd>
+</dl>
+</p><p>reducer.py</p>
+</p><p><pre class="literal-block">
+#!/usr/local/bin/python3
+</pre>
+<p>import sys
+from collections import Counter</p>
+<dl class="docutils">
+<dt>def run_reduce(f):</dt>
+<dd><p class="first"># inbuilt counter object that keeps counts
+# for all words added
+cnt = Counter()
+for line in f:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Users/cgopalan/my_blog/content/2013-01-08-hadoop-quickstart-with-python-map-reduce-example.rst</tt>, line 116)</p>
+Unexpected indentation.</div>
+<blockquote>
+data = line.rstrip()
+cnt[data] += 1</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/2013-01-08-hadoop-quickstart-with-python-map-reduce-example.rst</tt>, line 118)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p># print the word and its count
+for word, count in cnt.items():</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Users/cgopalan/my_blog/content/2013-01-08-hadoop-quickstart-with-python-map-reduce-example.rst</tt>, line 120)</p>
+Unexpected indentation.</div>
+<blockquote class="last">
+print(word,':',count)</blockquote>
+</dd>
+<dt>if __name__ == '__main__':</dt>
+<dd>run_reduce(sys.stdin)</dd>
+</dl>
+</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

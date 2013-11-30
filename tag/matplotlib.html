@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Blog - matplotlib</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/2013-01-10-univariate-linear-regression-in-scipy.html">Univariate Linear Regression in SciPy</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2013-01-10T15:36:00">
+                Thu 10 January 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/matplotlib.html">matplotlib</a><a href="/tag/scipy.html">scipy</a></p>
+</footer><!-- /.post-info --><p>Here's a short snippet of code that describes how to fit a linear curve
+for a set of data points using SciPy. Furthermore, its assumed that the
+data set is influenced by a single feature.</p>
+</p><p>This code is taken from the wonderful book <a class="reference external" href="http://shop.oreilly.com/product/0636920020219.do">SciPy and Numpy</a> from Eli
+Bressert, with a few changes to actually plot the curve using the
+fantastic <a class="reference external" href="http://matplotlib.org/">matplotlib</a> library.</p>
+</p><p><pre class="literal-block">
+import numpy as np
+from scipy.optimize import curve_fit
+# Creating a function to model and create data
+def func(x, a, b):
+    return a * x + b
+# Generating clean data
+x = np.linspace(0, 10, 100)
+y = func(x, 1, 2)
+# Adding noise to the data
+yn = y + 0.9 * np.random.normal(size=len(x))
+# Executing curve_fit on noisy data
+popt, pcov = curve_fit(func, x, yn)
+plot(x,yn,'bo',x,func(x,popt[0],popt[1]))
+</pre>
+</p><p><img alt="image0" src="data:image/png;base64,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" /></p>
+</p>                </article>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

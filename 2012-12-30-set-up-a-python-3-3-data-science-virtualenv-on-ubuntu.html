@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Set up a Python 3.3 data science virtualenv on Ubuntu 12.10</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li class="active"><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/2012-12-30-set-up-a-python-3-3-data-science-virtualenv-on-ubuntu.html" rel="bookmark"
+           title="Permalink to Set up a Python 3.3 data science virtualenv on Ubuntu 12.10">Set up a Python 3.3 data science virtualenv on Ubuntu 12.10</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-12-30T14:36:00">
+                Sun 30 December 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/numpy.html">numpy</a><a href="/tag/scipy.html">scipy</a></p>
+</footer><!-- /.post-info -->      <p><strong>1. Install Python 3.3.</strong></p>
+</p><p>Since Ubuntu's default python distribution is 3.2, the best way would be
+to download the source for 3.3 and then use configure, make, make test
+and sudo make install. This will replace the default python installation
+with 3.3 so that when you type python3 in the prompt, it will bring the
+python 3.3 interpreter. To use the previous version, you will have to
+type the version specifically - for eg python3.2.</p>
+</p><p><strong>2. Use pyvenv in Python 3.3 to set up the virtual environment.</strong></p>
+</p><p>Create the virtualenv. Then activate the virtual env and test that
+typing 'python' brings up python 3.3.</p>
+</p><p><pre class="literal-block">
+/home/py-datasci-env$ pyvenv py-datasci-env(py-datasci-env)/home/py-datasci-env$
+</pre>
+</p><p><strong>3. Install pip.</strong></p>
+</p><p>Since the virtual env installation in Python 3.3 does not install pip,
+install pip using distribute and then easy_install pip.</p>
+</p><p><pre class="literal-block">
+(py-datasci-env)/home/py-datasci-env$ python distribute_setup.py
+</pre>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/2012-12-30-set-up-a-python-3-3-data-science-virtualenv-on-ubuntu.rst</tt>, line 85)</p>
+Literal block ends without a blank line; unexpected unindent.</div>
+<p>(py-datasci-env)/home/py-datasci-env$ easy_install pip</p>
+</p><p><strong>4. Install IPython notebook.</strong></p>
+</p><p>Use pip to install ipython and then tornado, pyzmq which are needed for
+the notebook functionality.</p>
+</p><p><strong>5. Install Numpy version 1.7.</strong></p>
+</p><p>Unfortunately pypi at the time of this writing only provides Numpy 1.6
+which is not compatible with Python 3.3. So use pip to install the Numpy
+version 1.7 in git.</p>
+</p><p><pre class="literal-block">
+(py-datasci-env)/home/py-datasci-env$ pip install git+http://github.com/numpy/numpy/
+</pre>
+</p><p><strong>6. Install nose (optional).</strong></p>
+</p><p>If you want to run Numpy tests, you need to install nose.</p>
+</p><p><strong>7. Install matplotlib.</strong></p>
+</p><p>Matplotlib is now compatible with Python 3, so use pip to install it.</p>
+</p><p><strong>8. Install Scipy.</strong></p>
+</p><p>To get the scientific packages, install Scipy using pip.</p>
+</p><p>You should be good to go!</p>
+</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

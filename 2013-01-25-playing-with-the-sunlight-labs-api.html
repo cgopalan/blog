@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Playing with the Sunlight Labs API</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li class="active"><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/2013-01-25-playing-with-the-sunlight-labs-api.html" rel="bookmark"
+           title="Permalink to Playing with the Sunlight Labs API">Playing with the Sunlight Labs API</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-01-25T20:32:00">
+                Fri 25 January 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/category/text.html">text</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/sunlight.html">sunlight</a></p>
+</footer><!-- /.post-info -->      <p>The folks at <a class="reference external" href="http://sunlightlabs.com/">Sunlight Labs</a> have done some brilliant work which allows
+us to write a bit of code and get information about our legislators and
+government. Here's a piece of code that tells us which legislators were
+talking about gun control since December 2012. Additional data like the
+speaker party, chamber, etc are also available.</p>
+</p><p><pre class="literal-block">
+import requests
+import jsonparty = {'D':'Democrat', 'R':'Republican'}
+query_params = { 'apikey': '8247eaddc2544488909bea51c41dcc7c',
+                                    'phrase': 'gun control',
+                                    'start_date': '2012-12-01',
+                            }
+endpoint = 'http://capitolwords.org/api/text.json'
+
+response = requests.get( endpoint, params=query_params)
+data = json.loads(response.content.decode('utf-8'))
+
+for v_dict in data['results']:
+    print(&quot;, &quot;.join([v_dict.get('title'), v_dict.get('chamber'),
+                    party.get(v_dict.get('speaker_party')),
+                    v_dict.get('speaker_first') + ' ' +
+                    v_dict.get('speaker_last'),
+                    v_dict.get('pages')]))
+</pre>
+</p><p>As of Jan 25, 2013 the result reads:</p>
+</p><p><pre class="literal-block">
+RIGHT OF GUN OWNERSHIP, House, Republican, Doug Collins, H76
+SANDY HOOK TRAGEDY, House, Democrat, Albio Sires, H6835
+REINSTATE THE ASSAULT WEAPONS BAN, House, Democrat, Janice Hahn, H6836
+CONDEMNING THE HORRIFIC ATTACKS IN NEWTOWN, CONNECTICUT, AND EXPRESSING SUPPORT AND PRAYERS FOR ALL THOSE IMPACTED BY THIS TRAGEDY,
+Extensions, Democrat, Laura Richardson, E1952-E1953
+THE SHOOTING TRAGEDY IN NEWTOWN, CONNECTICUT, House, Democrat, Gerald Connolly, H6833-H6834
+113TH CONGRESS OPENING DAY STATEMENT, Extensions, Democrat, Yvette Clarke, E14
+DEPARTMENT OF DEFENSE APPROPRIATIONS ACT, Senate, Democrat, Charles Schumer, S8051-S8063
+DEPARTMENT OF DEFENSE APPROPRIATIONS ACT, Senate, Democrat, Barbara Mikulski, S8051-S8063
+RULES CHANGES, Senate, Republican, Michael Enzi, S8615-S8620
+IN THE CLOSING OF THE 112TH CONGRESS, House, Republican, Robert Dold, H6758-H6761
+TRIBUTES TO DEPARTING SENATORS, Senate, Democrat, Benjamin Cardin, S8498-S8504
+</pre>
+</p><p>There's also a direct <a class="reference external" href="http://python-sunlight.readthedocs.org/en/latest/">Python API</a> available which I will definitely be
+checking out. But for now, the simple HTTP-based API can be used to get
+a lot of useful information. Check out more of it <a class="reference external" href="http://services.sunlightlabs.com/docs/Sunlight_Congress_API/">here</a>.</p>
+</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

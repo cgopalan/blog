@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Data comparison? Python file comparison to the rescue!</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/data-comparison-python-file-comparison-to-the-rescue.html" rel="bookmark"
+           title="Permalink to Data comparison? Python file comparison to the rescue!">Data comparison? Python file comparison to the rescue!</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2006-05-31T17:38:00">
+                Wed 31 May 2006
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/chandrakant-noreplybloggercom.html">chandrakant (noreply@blogger.com)</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>. </p>
+<p>tags: <a href="/tag/httpschemasgooglecomblogger2008kindpost.html">http://schemas.google.com/blogger/2008/kind#post</a></p>
+</footer><!-- /.post-info -->      <div class="line-block">
+<div class="line">I had to update some data in a production database for a new</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/cgopalan/my_blog/content/data-comparison-python-file-comparison-to-the-rescue.rst</tt>, line 9)</p>
+Line block ends without a blank line.</div>
+<p>functionality. I had already done that in the test database during
+development, but it was not just a simple insert. The steps that I did
+went something like this:
+| 1. Generate a file with a set of insert statements (used Python for
+this!).
+| 2. Manually change some data in the insert statements.
+| 3. Run the insert statements
+| Now since I had to do the same in production, I wanted to make sure
+that after this insert, the data would look exactly the same as it did
+now in test. In other words, I wanted to be able to repeatedly run the
+process above, and make sure that the steps produced always the same set
+of data. This would guard against any mistakes being done during step 2,
+which is a manual edit of a file and prone to error.
+| Sounds simple - I could generate the file of insert statements, and
+then compare it against the file that was already changed and used to
+load the data in the table. Problem is, I no longer had that file I
+could compare against. So instead of comparing insert statements, I
+would have to compare data. The process I did went something like this:
+| 1. Export current data in the table to a file, say file1.txt
+| 2. Delete the inserted rows from the table.
+| 3. Generate insert statements again, manually edit, and insert rows
+into the table.
+| 4. Export data in the table to a file, say file2.txt
+| Now all I had to do, was compare file1.txt and file2.txt. If they are
+equivalent, it means my manual edits were on target.
+| So how did I compare the two files? Python to the rescue! This is all
+it took:
+| <strong>*import filecmp*</strong>
+| <strong>*filecmp.cmp('file1.txt', 'file2.txt')*</strong>
+| If they are equal it returns true, else false.
+| I have to admit that that the only reason I thought about comparing
+data rather than the insert statements was because I was sure Python
+would have something neat for file comparison. The database-oriented
+guys might have fired up some magic by using stored procedures and
+temporary tables, and it would have been equally satisfying to them.
+| Its all a matter of what you are comfortable with, I guess.</p>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
