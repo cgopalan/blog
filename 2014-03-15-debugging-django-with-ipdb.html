@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Debugging Django with ipdb</title>
+        <link rel="stylesheet" href="/blog/theme/css/main.css">
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/blog/category/misc.html">misc</a></li>
+                    <li class="active"><a href="/blog/category/text.html">text</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/blog/2014-03-15-debugging-django-with-ipdb.html" rel="bookmark"
+           title="Permalink to Debugging Django with ipdb">Debugging Django with ipdb</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-03-15T20:32:00">
+                Sat 18 March 2014
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/blog/author/cgopalan.html">cgopalan</a>
+        </address>
+<p>In <a href="/blog/category/text.html">text</a>. </p>
+<p>tags: <a href="/blog/tag/python.html">python</a><a href="/blog/tag/ipdb.html">sunlight</a></p>
+</footer><!-- /.post-info -->      <p>If you prefer using lightweight IDEs, you will have to look for other ways
+to debug, since your IDE will not provide debug functionality. IPDB (an IPython-wrapper to PDB) is a command-line
+debugger that satisfies this requirement. Also, this in no way means that the debugging interface is lacking. In fact,
+IPDB has an intuitive, easy to use set of commands. Add to that the syntax coloring and other functionality provided
+by IPython like tab-completion, searchable history and access to the shell, IPDB is no less than a delight to use.</p>
+<p>Add this line just before the line that you want to start debugging from:</p>
+<p><pre class="literal-block">
+import ipdb; ipdb.set_trace()
+</pre></p>
+<p>Now when you run the program, the debugger will kick in and will wait for input or inspection at the line below the
+above statement.</p>
+</p><p>Here are some useful commands that can be used while interacting with the debugger:</p>
+<p>s -- Step into the line. This will go into each line and execute.</p>
+<p>n -- Step to the next line. This will jump to the next line and bypass multiple calls in the previous line.</p>
+</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
