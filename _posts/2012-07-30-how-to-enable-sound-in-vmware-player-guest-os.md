@@ -11,10 +11,10 @@ edit it.
 
 Make sure the following lines are in there. If not, add them.
 
-sound.present = &quot;TRUE&quot;
+sound.present = "TRUE"
 
-sound.virtualDev = &quot;es1371&quot;
-sound.filename = &quot;-1&quot;
-sound.autodetect = &quot;TRUE&quot;
+sound.virtualDev = "es1371"
+sound.filename = "-1"
+sound.autodetect = "TRUE"
 
 Credit goes to this post.

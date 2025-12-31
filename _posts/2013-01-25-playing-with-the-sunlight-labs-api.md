@@ -14,7 +14,9 @@ speaker, party, chamber, etc are also available.
 
 ```
 import requests
-import jsonparty = {'D':'Democrat', 'R':'Republican'}
+import json
+
+party = {'D':'Democrat', 'R':'Republican'}
 query_params = { 'apikey': '8247eaddc2544488909bea51c41dcc7c',
                                     'phrase': 'gun control',
                                     'start_date': '2012-12-01',
@@ -25,7 +27,7 @@ response = requests.get( endpoint, params=query_params)
 data = json.loads(response.content.decode('utf-8'))
 
 for v_dict in data['results']:
-    print(&quot;, &quot;.join([v_dict.get('title'), v_dict.get('chamber'),
+    print(", ".join([v_dict.get('title'), v_dict.get('chamber'),
                     party.get(v_dict.get('speaker_party')),
                     v_dict.get('speaker_first') + ' ' +
                     v_dict.get('speaker_last'),

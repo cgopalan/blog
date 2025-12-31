@@ -20,14 +20,14 @@ git status -s
 To add files (to staging area) that are not yet under source control:
 
 ```
-git add &lt;filename1&gt; &lt;filename2&gt; ....
+git add <filename1> <filename2> ....
 ```
 
 To remove files (from staging area) that were under version control but
 no longer need to be:
 
 ```
-git rm &lt;filename1&gt; &lt;filename2&gt; ...
+git rm <filename1> <filename2> ...
 ```
 
 To record the changes locally:

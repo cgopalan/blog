@@ -11,18 +11,18 @@ Line block ends without a blank line.
 on input size.Note, Big-O does not automatically imply worst-case. We
 just use it as a notation for worst-case running times.
 | Say an algorithm's running time is T(n).
-| Q: When is T(n) = O(f(n))? (&quot;Big Oh f of n&quot;)
+| Q: When is T(n) = O(f(n))? ("Big Oh f of n")
 | A: If eventually, for all sufficiently large n, T(n) is bounded above
-| &nbsp;by a constant multiple of f(n).
+|  by a constant multiple of f(n).
 |
-| &nbsp;Mathematically:
-| &nbsp;T(n) = O(f(n)) if an only if there exists constants C, n0 &gt; 0
-| &nbsp;such that T(n) &lt;= C * f(n) for all n &gt;= n0.
+|  Mathematically:
+|  T(n) = O(f(n)) if an only if there exists constants C, n0 > 0
+|  such that T(n) <= C * f(n) for all n >= n0.
 |
-| &nbsp;Both n0 and C should be independent of n.
+|  Both n0 and C should be independent of n.
 |
-| &nbsp;Note: If we have T(n) as a polynomial with the highest order term as
+|  Note: If we have T(n) as a polynomial with the highest order term as
 n**k,
-| &nbsp;then T(n) = O(n**k), i.e. lower order terms don't matter.
+|  then T(n) = O(n**k), i.e. lower order terms don't matter.
 |
 |

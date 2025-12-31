@@ -6,6 +6,6 @@ categories: misc
 tags: python algorithms
 ---
 
-// 
+Here's a Python implementation of the Mergesort algorithm:
 
-// ]]>
+<script src="https://gist.github.com/2188517.js"></script>
