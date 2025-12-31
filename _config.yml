@@ -1,0 +1,44 @@
+# Site settings
+title: Blog
+email: chandrakant.gopalan@gmail.com
+description: >-
+  A technical blog covering Python, Django, algorithms, and programming topics.
+baseurl: "/blog" # the subpath of your site, e.g. /blog
+url: "https://cgopalan.github.io" # the base hostname & protocol for your site
+github_username: cgopalan
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Minima settings
+minima:
+  skin: classic
+  social_links:
+    - { platform: github, user_url: "https://github.com/cgopalan" }
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Permalink settings
+permalink: /:year-:month-:day-:title:output_ext
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"

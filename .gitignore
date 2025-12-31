@@ -1,0 +1,9 @@
+vendor/
+.bundle/
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+*.gem
+Gemfile.lock
+convert_posts.py
